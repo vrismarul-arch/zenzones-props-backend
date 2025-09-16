@@ -5,6 +5,11 @@ const entrySchema = new mongoose.Schema({
   email: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   dateTime: { type: Date, required: true },
-});
+  status: { 
+    type: String, 
+    enum: ["Pending", "Completed", "Rejected"], 
+    default: "Pending" 
+  },
+}, { timestamps: true });
 
 module.exports = mongoose.model("Entry", entrySchema);
