@@ -11,6 +11,8 @@ const corsOptions = {
     "http://localhost:5173",      // Local dev React
     "https://yourdomain.com"      // Production frontend
   ],
+
+  /* sd */
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
