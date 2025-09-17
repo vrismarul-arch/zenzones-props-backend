@@ -9,7 +9,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:5173",      // Local dev React
-    "https://yourdomain.com"      // Production frontend
+    "https://zenzones-props.netlify.app"      // Production frontend
   ],
 
   /* sd */
