@@ -11,7 +11,7 @@ const addEntry = async (req, res) => {
     const newEntry = new Entry({ name, email, phoneNumber, dateTime });
     await newEntry.save();
 
-    res.status(201).json({ message: "Entry saved successfully" });
+    res.status(201).json({ message: "Entry saved successfully. Our team will contact you soon." });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
