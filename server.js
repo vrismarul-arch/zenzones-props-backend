@@ -4,7 +4,19 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
+// CORS Config
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",      // Local dev React
+    "https://yourdomain.com"      // Production frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Routes
