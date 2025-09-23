@@ -3,14 +3,22 @@ const Entry = require("../models/Entry");
 // Add new entry
 const addEntry = async (req, res) => {
   try {
-    const { name, email, phoneNumber, dateTime } = req.body;
-    if (!name || !email || !phoneNumber || !dateTime) {
-      return res.status(400).json({ message: "All fields are required" });
+    const { name, email, phoneNumber, dateTime, propertyType, notes } = req.body;
+
+    if (!name || !email || !phoneNumber || !dateTime || !propertyType) {
+      return res.status(400).json({ message: "All required fields must be provided" });
     }
 
-    const newEntry = new Entry({ name, email, phoneNumber, dateTime });
-    await newEntry.save();
+    const newEntry = new Entry({
+      name,
+      email,
+      phoneNumber,
+      dateTime,
+      propertyType,
+      notes: notes || "",
+    });
 
+    await newEntry.save();
     res.status(201).json({ message: "Entry saved successfully. Our team will contact you soon." });
   } catch (error) {
     console.error(error);
@@ -34,6 +42,7 @@ const updateStatus = async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
+
     if (!["Pending", "Completed", "Rejected"].includes(status)) {
       return res.status(400).json({ message: "Invalid status" });
     }
