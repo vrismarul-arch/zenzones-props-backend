@@ -9,7 +9,8 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:5173",               // Local dev (Vite default)
-    "https://zenovastays.netlify.app"   // Production frontend
+    "https://zenovastays.netlify.app",   // Production frontend
+    "https://ads.zenovastays.com"   // Production frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
   allowedHeaders: ["Content-Type", "Authorization"],
