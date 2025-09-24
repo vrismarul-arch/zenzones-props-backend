@@ -5,7 +5,7 @@ const entrySchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-    dateTime: { type: Date, required: true },
+    dateTime: { type: Date, required: false },
     propertyType: { 
       type: String, 
       enum: ["2BHK", "3BHK", "4BHK"], 
